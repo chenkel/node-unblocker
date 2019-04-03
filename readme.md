@@ -6,7 +6,7 @@ written in node.js. It's since morphed into a general-purpose library for proxyi
 All data is processed and relayed to the client on the fly without unnecessary buffering, making unblocker one of the
 fastest web proxies available.
 
-[![Build Status](https://travis-ci.org/nfriedly/node-unblocker.png?branch=master)](https://travis-ci.org/nfriedly/node-unblocker)
+[![Build Status](https://travis-ci.org/nfriedly/node-unblocker.svg?branch=master)](https://travis-ci.org/nfriedly/node-unblocker)
 [![Dependency Status](https://david-dm.org/nfriedly/node-unblocker.svg)](https://david-dm.org/nfriedly/node-unblocker)
 [![npm-version](https://img.shields.io/npm/v/unblocker.svg)](https://www.npmjs.com/package/unblocker)
 
@@ -32,7 +32,7 @@ fixes to go in the examples folder.
 
 ## Running the website on your computer
 
-Requires [node.js](http://nodejs.org/) >=4.3
+Requires [node.js](http://nodejs.org/) >= 6
 Then [download node-unblocker](https://github.com/nfriedly/node-unblocker/archive/master.zip),
 `cd` into the `examples/nodeunblocker.com/` directory,
 and run `npm install` to set things up.
@@ -197,7 +197,7 @@ Most of the internal functionality of the proxy is also implemented as middlewar
 * **hpkp**: Removes [Public-Key-Pinning](https://en.wikipedia.org/wiki/HTTP_Public_Key_Pinning) headers because they can leak to other sites and can break the proxy.
 * **csp**: Removes [Content-Security-Policy](https://en.wikipedia.org/wiki/Content_Security_Policy) headers because they can leak to other sites and can break the proxy.
 * **redirects**: Rewrites urls in 3xx redirects to ensure they go through the proxy
-* **decompress**: Decompresses `Content-Encoding: gzip` responses and also tweaks request headers to ask for either gzip-only or no compression at all. (It will attempt to decompress `deflate` content, but there are some issues, so it does not advertise support for `deflate`.)
+* **decompress**: Decompresses `Content-Encoding: gzip|deflate` responses and also tweaks request headers to ask for either gzip-only or no compression at all. (It will attempt to decompress `deflate` content, but there are some issues, so it does not advertise support for `deflate`.)
 * **charsets**: Converts the charset of responses to UTF-8 for safe string processing in node.js. Determines charset from headers or meta tags and rewrites all headers and meta tags in outgoing response.
 * **urlPrefixer**: Rewrites URLS of links/images/css/etc. to ensure they go through the proxy
 * **metaRobots**: Injects a ROBOTS: NOINDEX, NOFOLLOW meta tag to prevent search engines from crawling the entire web through the proxy.
